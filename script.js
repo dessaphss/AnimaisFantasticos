@@ -25,3 +25,28 @@ function initTabNav(){
   };
 };
 initTabNav();
+
+
+//Função Accordion List para os itens do FAQ
+function initAccordion(){
+  const accordionList = document.querySelectorAll('.js-accordion dt');
+  const active = 'ativo';
+
+  if(accordionList.length){
+    accordionList[0].classList.add(active);
+    accordionList[0].nextElementSibling.classList.add(active);
+
+    //função para ativar os itens DT e DD no HTML
+    function activeAccordion(){
+      this.classList.toggle(active);
+      this.nextElementSibling.classList.toggle(active);
+    }
+
+    //Evento para incluir a classe ativo após clicar no elemento
+    accordionList.forEach((item) => {
+      item.addEventListener('click', activeAccordion);
+    });
+  }
+}
+initAccordion();
+
