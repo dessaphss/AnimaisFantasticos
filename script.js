@@ -70,3 +70,29 @@ function initScrollSuave(){
   });
 }
 initScrollSuave();
+
+//Função para animar o scroll
+function initAnimicaoScroll(){
+  const sections = document.querySelectorAll('.js-scroll');
+  const active = 'ativo';
+
+  if(sections.length){
+    const windowMetade = window.innerHeight * 0.6;
+
+    function animaScroll(){
+      sections.forEach((section) => {
+        //constante para salvar o valor da section quando chega no topo da página
+        const sectionTop = section.getBoundingClientRect().top - windowMetade;
+        if(sectionTop < 0){
+          section.classList.add(active);
+        } else {
+          section.classList.remove(active);
+        }
+      });
+    };
+    animaScroll();
+
+    window.addEventListener('scroll', animaScroll);
+  };
+};
+initAnimicaoScroll();
