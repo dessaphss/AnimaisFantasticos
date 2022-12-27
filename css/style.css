@@ -211,6 +211,7 @@ body {
 }
 
 /* ESTILOS JS */
+/* Estilo activeTab */
 .js-tabcontent section {
   display: none;
 }
